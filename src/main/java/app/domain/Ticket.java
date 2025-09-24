@@ -10,6 +10,25 @@ public class Ticket {
     private boolean active;
     private Genre genre;
 
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public String getTitleMovie() {
+        return titleMovie;
+    }
+
+    public double getPrice() {
+        return price;
+    }
 
     public Long getId() {
         return id;
