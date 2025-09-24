@@ -15,8 +15,24 @@ public class Customer {
         this.id = id;
     }
 
+    public List<Ticket> getCart() {
+        return cart;
+    }
+
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public boolean isActive() {
+        return active;
     }
 
     @Override
