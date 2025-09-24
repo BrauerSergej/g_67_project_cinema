@@ -105,18 +105,18 @@ public class CustomerService {
     public void addTicketToCustomersCart(Long customerId, Long ticketId) {
         Customer customer = getActiveCustomerById(customerId);
         Ticket ticket = ticketService.getActiveTicketById(ticketId);
-        customer.getCart().remove(ticket);
+        customer.getCart().add(ticket);
     }
 
     //Добавить товар в корзину покупателя по их идентификаторам (если оба активны)
-    public void removeTicketToCustomersCart(Long customerId, Long ticketId) {
+    public void removeTicketFromCustomersCart(Long customerId, Long ticketId) {
         Customer customer = getActiveCustomerById(customerId);
         Ticket ticket= ticketService.getActiveTicketById(ticketId);
         customer.getCart().remove(ticket);
     }
 
     //Полностью очистить корзину покупателя по его идентификатору (если он активен)
-    public void removeTicketFromCustomerCart(Long customerId) {
+    public void clearCustomersCart(Long customerId) {
         Customer customer = getActiveCustomerById(customerId);
         customer.getCart().clear();
     }

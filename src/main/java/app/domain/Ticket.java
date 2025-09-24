@@ -10,6 +10,12 @@ public class Ticket {
     private boolean active;
     private Genre genre;
 
+    public Ticket(String titleMovie, double price, Genre genre) {
+        this.titleMovie = titleMovie;
+        this.price = price;
+        this.genre = genre;
+    }
+
     public Genre getGenre() {
         return genre;
     }
