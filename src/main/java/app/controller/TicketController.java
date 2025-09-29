@@ -10,7 +10,7 @@ public class TicketController {
 
     public final TicketService service = TicketService.getInstance();
 
-    //    Сохранить продукт в базе данных (при сохранении продукт автоматически считается активным).
+    //    Сохранить билет в базе данных (при сохранении продукт автоматически считается активным).
     public Ticket save(String title, String price, String genre) {
         Genre genre1 = Genre.valueOf(genre.toUpperCase());
         double numericPrice = Double.parseDouble(price);
@@ -18,12 +18,12 @@ public class TicketController {
         return service.save(ticket);
     }
 
-    //    Вернуть все продукты из базы данных (активные).
+    //    Вернуть все билеты из базы данных (активные).
     public List<Ticket> getAll() {
         return service.getAllActiveTickets();
     }
 
-    //    Вернуть один продукт из базы данных по его идентификатору (если он активен).
+    //    Вернуть один билет из базы данных по его идентификатору (если он активен).
     public Ticket getById(String id) {
         long numericId = Long.parseLong(id);
         return service.getActiveTicketById(numericId);
@@ -35,11 +35,11 @@ public class TicketController {
         service.update(numericId, numericNewPrice);
     }
     //    Удалить продукт из базы данных по его идентификатору.
-    public void deleteByIde(String id) {
+    public void deleteById(String id) {
         long numericId = Long.parseLong(id);
         service.deleteById(numericId);
     }
-    //    Удалить продукт из базы данных по его наименованию.
+    //    Удалить билет из базы данных по его наименованию.
     public void deleteByTitle(String title) {
         service.deleteByTitle(title);
     }
@@ -53,7 +53,7 @@ public class TicketController {
         return service.getActiveTicketsCount();
     }
     //    Вернуть суммарную стоимость всех продуктов в базе данных (активных).
-    public double getProductsTotalCost() {
+    public double getTicketsTotalCost() {
         return service.getActiveTicketsTotalCost();
     }
     //    Вернуть среднюю стоимость продукта в базе данных (из активных).
