@@ -56,13 +56,13 @@ public class CustomerController {
         return service.getCustomerCartAveragePrice(numericCustomerId);
     }
 
-    //    Добавить товар в корзину покупателя по их идентификаторам (если оба активны)
+    //    Добавить билет в корзину покупателя по их идентификаторам (если оба активны)
     public void addTicketToCustomersCart(String customerId, String ticketId) {
         long numericCustomerId = Long.parseLong(customerId);
         long numericTicketId = Long.parseLong(ticketId);
         service.addTicketToCustomersCart(numericCustomerId, numericTicketId);
     }
-    //    Удалить товар из корзины покупателя по их идентификаторам
+    //    Удалить билет из корзины покупателя по их идентификаторам
     public void removeTicketFromCustomersCart(String customerId, String ticketId) {
         long numericCustomerId = Long.parseLong(customerId);
         long numericTicketId = Long.parseLong(ticketId);

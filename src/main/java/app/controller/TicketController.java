@@ -10,11 +10,11 @@ public class TicketController {
 
     public final TicketService service = TicketService.getInstance();
 
-    //    Сохранить билет в базе данных (при сохранении продукт автоматически считается активным).
-    public Ticket save(String title, String price, String genre) {
+    //    Сохранить билет в базе данных (при сохранении билет автоматически считается активным).
+    public Ticket save(String title, String genre, String price) {
         Genre genre1 = Genre.valueOf(genre.toUpperCase());
         double numericPrice = Double.parseDouble(price);
-        Ticket ticket = new Ticket(title, numericPrice, genre1);
+        Ticket ticket = new Ticket(title, genre1, numericPrice);
         return service.save(ticket);
     }
 
@@ -28,13 +28,13 @@ public class TicketController {
         long numericId = Long.parseLong(id);
         return service.getActiveTicketById(numericId);
     }
-    //    Изменить один продукт в базе данных по его идентификатору.
+    //    Изменить один билет в базе данных по его идентификатору.
     public void update(String id, String newPrice) {
         long numericId = Long.parseLong(id);
         double numericNewPrice = Double.parseDouble(newPrice);
         service.update(numericId, numericNewPrice);
     }
-    //    Удалить продукт из базы данных по его идентификатору.
+    //    Удалить билет из базы данных по его идентификатору.
     public void deleteById(String id) {
         long numericId = Long.parseLong(id);
         service.deleteById(numericId);
@@ -48,19 +48,19 @@ public class TicketController {
         long numericId = Long.parseLong(id);
         service.restoreById(numericId);
     }
-    //    Вернуть общее количество продуктов в базе данных (активных).
+    //    Вернуть общее количество билетов в базе данных (активных).
     public int getTicketsCount() {
         return service.getActiveTicketsCount();
     }
-    //    Вернуть суммарную стоимость всех продуктов в базе данных (активных).
+    //    Вернуть суммарную стоимость всех билетов в базе данных (активных).
     public double getTicketsTotalCost() {
         return service.getActiveTicketsTotalCost();
     }
-    //    Вернуть среднюю стоимость продукта в базе данных (из активных).
+    //    Вернуть среднюю стоимость билета в базе данных (из активных).
     public double getTicketsAveragePrice() {
         return service.getActiveTicketsAveragePrice();
     }
-
+    // Вернуть все фильмы по жанру в базе данных (активных)
     public List<Ticket> getAllActiveTicketsByGenres(String genre){
         Genre genre1 = Genre.valueOf(genre.toUpperCase());
         return service.getActiveTicketsByGenre(genre1);

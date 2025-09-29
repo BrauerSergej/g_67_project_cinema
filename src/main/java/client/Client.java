@@ -49,7 +49,7 @@ public class Client {
                 System.out.println("1 - сохранить билет");
                 System.out.println("2 - получить все билеты");
                 System.out.println("3 - получить билет по идентификатору");
-                System.out.println("4 - изменить билет");
+                System.out.println("4 - изменить стоимость билета");
                 System.out.println("5 - удалить билет по идентификатору");
                 System.out.println("6 - удалить билет по названию фильма");
                 System.out.println("7 - восстановить билет по идентификатору");
@@ -63,7 +63,7 @@ public class Client {
 
                 switch (input) {
                     case "1":
-                        System.out.println("Введите название билета");
+                        System.out.println("Введите название фильма");
                         String title = scanner.nextLine();
                         System.out.println("Введите жанр фильма");
                         String genre = scanner.nextLine();

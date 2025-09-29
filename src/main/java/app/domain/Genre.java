@@ -7,5 +7,5 @@ public enum Genre {
     COMEDY,
     THRILLER,
     DRAMA,
-    CARTOON;
+    CARTOON
 }

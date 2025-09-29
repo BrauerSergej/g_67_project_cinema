@@ -6,14 +6,16 @@ import java.util.Objects;
 public class Ticket {
     private Long id;
     private String titleMovie;
+
+    private Genre genre;
     private double price;
     private boolean active;
-    private Genre genre;
 
-    public Ticket(String titleMovie, double price, Genre genre) {
+
+    public Ticket(String titleMovie, Genre genre, double price) {
         this.titleMovie = titleMovie;
-        this.price = price;
         this.genre = genre;
+        this.price = price;
     }
 
     public Genre getGenre() {

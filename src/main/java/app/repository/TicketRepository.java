@@ -11,22 +11,22 @@ public class TicketRepository {
     // Имитация базы данных
     private final List<Ticket> database = new ArrayList<>();
 
-    // Поле, которое учитывает, какой сейчас максимальный ID тикета в базе данных
+    // Поле, которое учитывает, какой сейчас максимальный ID билета в базе данных
     private long maxId;
 
-    // Метод, который сохраняет новый тикет в базе данных (Create)
+    // Метод, который сохраняет новый билет в базе данных (Create)
     public Ticket save(Ticket ticket) {
         ticket.setId(++maxId);
         database.add(ticket);
         return ticket;
     }
 
-    // Метод, который возвращает все тикеты из базы данных(Read)
+    // Метод, который возвращает все билеты из базы данных(Read)
     public List<Ticket> findAll() {
         return database;
     }
 
-    // Метод, который возвращает один конкретный тикет по идентификатору (Read)
+    // Метод, который возвращает один конкретный билет по идентификатору (Read)
     public Ticket findById(Long id) {
         for (Ticket ticket : database) {
             if (ticket.getId().equals(id)) {
@@ -36,7 +36,7 @@ public class TicketRepository {
         return null;
     }
 
-    // Метод, который изменяет цену существующего тикета в базе данных (Update)
+    // Метод, который изменяет цену существующего билета в базе данных (Update)
     public void update(Long id, double newPrice) {
         for (Ticket ticket : database) {
             if (ticket.getId().equals(id)) {
@@ -46,7 +46,7 @@ public class TicketRepository {
         }
     }
 
-    // Метод, который удаляет тикет из базы данных (Delete)
+    // Метод, который удаляет билет из базы данных (Delete)
     private void deleteById(Long id) {
         Iterator<Ticket> iterator = database.iterator();
         while (iterator.hasNext()) {
